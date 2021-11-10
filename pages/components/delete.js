@@ -6,7 +6,7 @@ const deleteForm = {
     email: ""
 }
 
-export default Delete() {
+export default function Delete() {
     const [deleteField, setDeleteField] = useState(deleteForm);
     const client = useZafClient();
   
