@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { useZafClient } from "../../utils/zafClient";
-import { createUser } from "../api/requests";
+import { useZafClient } from "../utils/zafClient";
+import { createUser } from "../pages/api/requests";
 
 const registerForm = {
   email: "",
@@ -64,7 +64,7 @@ export default function Register() {
           />
         </label>
         <label>
-          email:
+          last name:
           <input
             type="text"
             name="last_name"
@@ -73,7 +73,7 @@ export default function Register() {
           />
         </label>
         <label>
-          email:
+          password:
           <input
             type="text"
             name="password"
