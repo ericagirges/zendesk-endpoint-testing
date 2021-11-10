@@ -1,6 +1,19 @@
 import { useState } from "react";
 import { useZafClient } from "../utils/zafClient";
 import { getUsers } from "../pages/api/requests";
+import styled from "styled-components";
+
+const StyledHeading = styled.h2 `
+  text-align: center;
+  color: #58466C;
+
+`
+
+const StyledContainer = styled.div `
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
 
 const allUsers = [];
 
@@ -22,22 +35,15 @@ export default function Get() {
     );
   };
 
-  // let toggleMe = "hide"
-  // // show or hide
-  // const toggleResults = () => {
-  //   if(userData != []) {
-  //     toggleMe = "show"
-  //   }
-  // }
-
   return (
-    <div>
+    <StyledContainer>
+      <StyledHeading>User List</StyledHeading>
       <button onClick={getAllUsers}>Get Users</button>
       {userData.map((user) => {
         <div key={user.id}>
           <p>{user.email}</p>
         </div>
       })}
-    </div>
+    </StyledContainer>
       
   )}

@@ -1,6 +1,28 @@
 import { useState } from "react";
 import { useZafClient } from "../utils/zafClient";
 import { deleteUser } from "../pages/api/requests";
+import styled from "styled-components";
+
+const StyledHeading = styled.h2 `
+  text-align: center;
+  color: #58466C;
+  
+`
+
+const StyledForm = styled.form`
+  width: 30%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 200px;
+  text-align: left;
+
+`
+
+const StyledLabel = styled.label `
+  padding: 10px 0;
+`
 
 const deleteForm = {
   email: "",
@@ -40,9 +62,9 @@ export default function Delete() {
 
   return (
     <div>
-      <h2>Delete User</h2>
-      <form onSubmit={handleDelete}>
-        <label>
+      <StyledHeading>Delete User</StyledHeading>
+      <StyledForm onSubmit={handleDelete}>
+        <StyledLabel>
           email:
           <input
             type="text"
@@ -50,8 +72,9 @@ export default function Delete() {
             value={deleteField.email}
             onChange={handleChanges}
           />
-        </label>
-      </form>
+        </StyledLabel>
+        <button>Delete</button>
+      </StyledForm>
     </div>
   );
 }

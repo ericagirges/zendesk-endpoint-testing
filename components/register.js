@@ -1,6 +1,29 @@
 import { useState, useEffect } from "react";
 import { useZafClient } from "../utils/zafClient";
 import { createUser } from "../pages/api/requests";
+import styled from "styled-components";
+
+const StyledForm = styled.form`
+  width: 30%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 280px;
+  text-align: left;
+
+`
+
+const StyledLabel = styled.label `
+  padding: 10px 0;
+
+`
+
+const StyledHeading = styled.h2 `
+  text-align: center;
+  color: #58466C;
+  
+`
 
 const registerForm = {
   email: "",
@@ -43,9 +66,9 @@ export default function Register() {
 
   return (
     <div>
-      <h2>Register a New User</h2>
-      <form onSubmit={handleRegister}>
-        <label>
+      <StyledHeading>Register a New User</StyledHeading>
+      <StyledForm onSubmit={handleRegister}>
+        <StyledLabel>
           email:
           <input
             type="text"
@@ -53,8 +76,8 @@ export default function Register() {
             value={formFields.email}
             onChange={handleChanges}
           />
-        </label>
-        <label>
+        </StyledLabel>
+        <StyledLabel>
           first name:
           <input
             type="text"
@@ -62,8 +85,8 @@ export default function Register() {
             value={formFields.first_name}
             onChange={handleChanges}
           />
-        </label>
-        <label>
+        </StyledLabel>
+        <StyledLabel>
           last name:
           <input
             type="text"
@@ -71,8 +94,8 @@ export default function Register() {
             value={formFields.last_name}
             onChange={handleChanges}
           />
-        </label>
-        <label>
+        </StyledLabel>
+        <StyledLabel>
           password:
           <input
             type="text"
@@ -80,9 +103,9 @@ export default function Register() {
             value={formFields.password}
             onChange={handleChanges}
           />
-        </label>
+        </StyledLabel>
         <button>Submit</button>
-      </form>
+      </StyledForm>
     </div>
   );
 }
